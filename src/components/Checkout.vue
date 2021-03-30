@@ -4,11 +4,11 @@
       <div>
         <div>
           <span>Total before update</span>
-          <span data-test-id="total-before-discount">0</span>
+          <span data-testid="total-before-discount">0</span>
         </div>
         <div>
           <span>Total after discount</span>
-          <span data-test-id="total-after-discount">0</span>
+          <span data-testid="total-to-pay">0</span>
         </div>
       </div>
       <form>
