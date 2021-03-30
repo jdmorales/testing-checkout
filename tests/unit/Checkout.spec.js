@@ -1,11 +1,11 @@
-import { render, screen, fireEvent } from '@testing-library/vue'
+import { render, screen } from '@testing-library/vue'
 import '@testing-library/jest-dom'
 
 import Checkout from '@/components/Checkout'
 
 describe('test on checkout', () => {
   it('should exist inputs necessary in checkout', async() => {
-    expect.assertions(2)
+    expect.assertions(1)
     // arrange
     const { debug } = render(Checkout)
     // eslint-disable-next-line testing-library/no-debug
