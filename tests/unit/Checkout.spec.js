@@ -28,7 +28,7 @@ describe('test on checkout', () => {
     expect(screen.getByTestId('total-to-pay')).toBeTruthy()
   })
 
-  it('should be working find the applying of discount', async () => {
+  it('should be working fine the applying of discount', async () => {
     expect.assertions(2)
     // arrange
     render(Checkout, {
