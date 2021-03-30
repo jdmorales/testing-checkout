@@ -1,14 +1,24 @@
 <template>
   <div class="checkout-component">
     <div class="wrapper-form">
-      <div>
+      <div class="content-totals-rows">
         <div>
           <span>Total before update</span>
-          <span data-testid="total-before-discount">0</span>
+          <span
+            data-testid="total-before-discount"
+            class="total-value"
+          >
+            0
+          </span>
         </div>
         <div>
           <span>Total after discount</span>
-          <span data-testid="total-to-pay">0</span>
+          <span
+            data-testid="total-to-pay"
+            class="total-value"
+          >
+            0
+          </span>
         </div>
       </div>
       <form>
@@ -58,5 +68,18 @@ export default{
 .form-group{
   display: flex;
   flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.content-totals-rows{
+  margin-bottom: 32px;
+}
+
+.content-totals-rows > div{
+  margin-bottom: 16px;
+}
+
+.total-value{
+  margin-left: 16px;
 }
 </style>
