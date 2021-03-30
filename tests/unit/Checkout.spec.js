@@ -42,6 +42,6 @@ describe('test on checkout', () => {
     expect(screen.getByTestId('total-before-discount')).toHaveTextContent('100')
 
     //assert if discount works fine
-    expect(screen.getByTestId('total-to-pay')).toHaveTextContent('25')
+    expect(screen.getByTestId('total-to-pay')).toHaveTextContent('75')
   })
 })
