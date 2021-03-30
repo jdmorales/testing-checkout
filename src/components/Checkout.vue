@@ -5,6 +5,7 @@
         <div>
           <span>Total before update</span>
           <span
+            id="total-before-discount"
             data-testid="total-before-discount"
             class="total-value"
           >
@@ -14,6 +15,7 @@
         <div>
           <span>Total after discount</span>
           <span
+            id="total-to-pay"
             data-testid="total-to-pay"
             class="total-value"
           >
