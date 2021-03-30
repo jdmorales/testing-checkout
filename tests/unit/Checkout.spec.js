@@ -29,7 +29,7 @@ describe('test on checkout', () => {
   })
 
   it('should be working fine the applying of discount', async () => {
-    expect.assertions(2)
+    expect.assertions(3)
     // arrange
     render(Checkout, {
       props: { totalToPay: 100 }
