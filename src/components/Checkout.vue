@@ -1,6 +1,16 @@
 <template>
   <div class="checkout-component">
     <div class="wrapper-form">
+      <div>
+        <div>
+          <span>Total before update</span>
+          <span data-test-id="total-before-discount">0</span>
+        </div>
+        <div>
+          <span>Total after discount</span>
+          <span data-test-id="total-after-discount">0</span>
+        </div>
+      </div>
       <form>
         <div class="form-group">
           <label for="coupon-input">Enter a coupon</label>
@@ -10,6 +20,12 @@
             type="text"
           >
         </div>
+        <button
+          type="submit"
+          role="button"
+        >
+          Apply coupon
+        </button>
       </form>
     </div>
   </div>
