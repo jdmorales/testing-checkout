@@ -22,7 +22,7 @@ describe('test on checkout', () => {
     expect(screen.getByRole('button')).toBeTruthy()
 
     //assert: if exist total to pay
-    expect(screen.getByTestId('total-before-pay')).toBeTruthy()
+    expect(screen.getByTestId('total-before-discount')).toBeTruthy()
 
     //assert: if exist total to pay
     expect(screen.getByTestId('total-to-pay')).toBeTruthy()
