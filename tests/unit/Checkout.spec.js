@@ -12,6 +12,6 @@ describe('test on checkout', () => {
     * Search types: https://testing-library.com/docs/vue-testing-library/cheatsheet#search-types
     */
     // expect if exist exist the input about coupon
-    expect(screen.getByLabelText('coupon-input')).toBeTruthy()
+    expect(screen.getByLabelText('Enter a coupon')).toBeTruthy()
   })
 })
