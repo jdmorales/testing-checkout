@@ -1,17 +1,21 @@
-import { render, screen } from '@testing-library/vue'
+import { render, screen, fireEvent } from '@testing-library/vue'
+import '@testing-library/jest-dom'
 
 import Checkout from '@/components/Checkout'
 
 describe('test on checkout', () => {
-  it('should exist inputs necessary in checkout', () => {
-    expect.assertions(1)
+  it('should exist inputs necessary in checkout', async() => {
+    expect.assertions(2)
     // arrange
     const { debug } = render(Checkout)
+    // eslint-disable-next-line testing-library/no-debug
     debug()
+
     /*
     * Search types: https://testing-library.com/docs/vue-testing-library/cheatsheet#search-types
     */
     // expect if exist exist the input about coupon
-    expect(screen.getByLabelText('Enter a coupon')).toBeTruthy()
+    const couponInput = screen.getByLabelText('Enter a coupon')
+    expect(couponInput).toBeTruthy()
   })
 })
