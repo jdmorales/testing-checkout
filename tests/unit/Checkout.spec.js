@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/vue'
+import { render, screen, fireEvent } from '@testing-library/vue'
 import '@testing-library/jest-dom'
 
 import Checkout from '@/components/Checkout'
@@ -26,5 +26,22 @@ describe('test on checkout', () => {
 
     //assert: if exist total to pay
     expect(screen.getByTestId('total-to-pay')).toBeTruthy()
+  })
+
+  it('should be working find the applying of discount', async () => {
+    expect.assertions(2)
+    // arrange
+    render(Checkout, {
+      props: { totalToPay: 100 }
+    })
+    // act
+    const couponInput = screen.getByLabelText('Enter a coupon')
+    await fireEvent.update(couponInput, 'TESTING_DISCOUNT_25')
+
+    //assert if total before discount show the value correctly
+    expect(screen.getByTestId('total-before-discount')).toHaveTextContent('100')
+
+    //assert if discount works fine
+    expect(screen.getByTestId('total-to-pay')).toHaveTextContent('25')
   })
 })
