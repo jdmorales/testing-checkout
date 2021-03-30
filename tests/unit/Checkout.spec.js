@@ -29,19 +29,28 @@ describe('test on checkout', () => {
   })
 
   it('should be working find the applying of discount', async () => {
-    expect.assertions(2)
+    expect.assertions(3)
     // arrange
     render(Checkout, {
       props: { totalToPay: 100 }
     })
     // act
     const couponInput = screen.getByLabelText('Enter a coupon')
+    const submitButton = screen.getByRole('button')
     await fireEvent.update(couponInput, 'TESTING_DISCOUNT_25')
+    await fireEvent.click(submitButton)
 
     //assert if total before discount show the value correctly
     expect(screen.getByTestId('total-before-discount')).toHaveTextContent('100')
 
     //assert if discount works fine
     expect(screen.getByTestId('total-to-pay')).toHaveTextContent('75')
+
+    // act
+    await fireEvent.update(couponInput, 'TESTING_DISCOUNT_60')
+    await fireEvent.click(submitButton)
+
+    //assert if discount works fine
+    expect(screen.getByTestId('total-to-pay')).toHaveTextContent('40')
   })
 })

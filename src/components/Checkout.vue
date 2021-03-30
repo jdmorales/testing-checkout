@@ -17,11 +17,11 @@
             data-testid="total-to-pay"
             class="total-value"
           >
-            75
+            {{ totalAfterDiscount }}
           </span>
         </div>
       </div>
-      <form>
+      <form @submit.prevent="applyingDiscount">
         <div class="form-group">
           <label for="coupon-input">Enter a coupon</label>
           <input
@@ -42,20 +42,38 @@
 </template>
 
 <script>
+
+const coupons = [
+  {
+    id: 'TESTING_DISCOUNT_25',
+    discount: 25
+  },
+  {
+    id: 'TESTING_DISCOUNT_60',
+    discount: 60
+  }
+]
+
 export default{
   name: 'Checkout',
   props: {
     totalToPay: {
       type: Number,
       default: 0,
-    },
+    }
   },
   data(){
     return {
-      coupon: ''
+      coupon: '',
+      totalAfterDiscount: 0,
     }
   },
-  methods: {}
+  methods: {
+    applyingDiscount(){
+      const couponDiscount = coupons.find((couponItem) => couponItem.id === this.coupon )
+      this.totalAfterDiscount = ((100 - couponDiscount.discount) / 100) * 100
+    }
+  }
 }
 </script>
 
