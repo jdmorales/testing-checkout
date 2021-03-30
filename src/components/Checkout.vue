@@ -8,7 +8,7 @@
             data-testid="total-before-discount"
             class="total-value"
           >
-            0
+            {{ totalToPay }}
           </span>
         </div>
         <div>
@@ -17,7 +17,7 @@
             data-testid="total-to-pay"
             class="total-value"
           >
-            0
+            75
           </span>
         </div>
       </div>
@@ -44,6 +44,12 @@
 <script>
 export default{
   name: 'Checkout',
+  props: {
+    totalToPay: {
+      type: Number,
+      default: 0,
+    },
+  },
   data(){
     return {
       coupon: ''
